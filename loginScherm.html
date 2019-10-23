@@ -17,17 +17,16 @@
             Password:<br>
             <input id="passwordInput" type="password" name="password" value="password">
             <br><br>
-            <input id="buttonPress" type="submit" value="Submit">
+            <input id="buttonPress" onclick="variablesAlert();testCapital();pswLengthCheck();checkForNumber();" type="submit" value="Submit">
 
-            <input id="buttonPress2" type="button" value="Capital letter check">
+            
         </fieldset>
     </form>
 </body>
 
 <script>
-    
-    document.getElementById("buttonPress").onclick = variablesAlert;
-    document.getElementById("buttonPress2").onclick = testCapital;
+    //document.getElementById("buttonPress").onclick = variablesAlert;
+    //document.getElementById("buttonPress2").onclick = testCapital;
 
     function variablesAlert() {
         var inputEmail = document.getElementById("emailInput").value;
@@ -37,9 +36,26 @@
 
     function testCapital() {
         if (document.getElementById("passwordInput").value.search(/[A-Z]/) < 0) {
-            alert("Your password needs an uppser case letter");
+            alert("Your password needs an upper case letter");
         } else {
             alert("You've succefully used an upper case letter for your password")
+        }
+    }
+
+    function pswLengthCheck() {
+        var passwordLength = document.getElementById("passwordInput").value;
+        if (document.getElementById("passwordInput").value.length < 4) {
+            alert("Your password needs a minimum of four characters");
+        } else {
+            alert("your password contains 4 or more characters")
+        }
+    }
+
+    function checkForNumber() {
+        if (document.getElementById("passwordInput").value.search(/[0-9]/) < 0) {
+            alert("Your password needs a number")
+        } else {
+            alert("Your password contains a number")
         }
     }
 </script></html>
