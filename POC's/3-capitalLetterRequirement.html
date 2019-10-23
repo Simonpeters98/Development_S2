@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>   
+        <form>
+        <fieldset>
+            <legend><b>Login:</b></legend>
+            E-mail:<br>
+            <input id="emailInput" type="text" name="email" value="youremail@email.com">
+            <br>
+            Password:<br>
+            <input id="inputId" type="password" name="password" value="password">
+            <br><br>
+            <input id="buttonPress" type="submit" value="Submit">
+        </fieldset>
+    </form>
+    
+</body>
+    <script>
+        function checkForCapital(){
+            var inputEmail = document.getElementById("emailInput").value;
+            var inputPassword = document.getElementById("inputId").value;
+            alert(inputEmail + '\n' + inputPassword);
+        }
+        
+        document.getElementById("buttonPress").onclick = checkForCapital;
+        
+    </script>
+</html>
