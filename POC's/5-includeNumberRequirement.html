@@ -17,7 +17,7 @@
             Password:<br>
             <input id="passwordInput" type="password" name="password" value="password">
             <br><br>
-            <input id="buttonPress" type="submit" value="Submit">
+            <input id="buttonPress" onclick="variablesAlert();checkForNumber();" type="submit" value="Submit">
 
             <input id="buttonPress2" type="button" value="Password length check">
         </fieldset>
@@ -25,7 +25,7 @@
 </body>
 
 <script>
-    document.getElementById("buttonPress").onclick = variablesAlert;
+    document.getElementById("buttonPress").onclick = variablesAlert
     document.getElementById("buttonPress2").onclick = checkForNumber;
 
     function variablesAlert() {
@@ -34,14 +34,17 @@
         alert(inputEmail + '\n' + inputPassword);
     }
 
-    function checkForNumber() {
-        if (document.getElementById("passwordInput").value.search(/[0-9]/) < 0) {
-            alert("Your password needs a number")
+        function checkForNumber() {
+            if (document.getElementById("passwordInput").value.search(/[0-9]/) < 0) {
+                alert("Your password needs a number")
+            } 
+            else {
+                alert("Your password contains a number")
+            }
+
+
         }
-        else{
-            alert("Your password contains a number")
-        }
-    }
+    
 </script></html>
 
 
