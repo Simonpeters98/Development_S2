@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p id="checkMe"></p>
+</body>
+<script>
+    document.addEventListener('keydown', function(key) {
+        if (key.keyCode === 32) {
+            document.body.style.backgroundColor = "red";
+        }
+    });
+
+    document.addEventListener('keyup', function(key) {
+        if (key.keyCode === 32) {
+            document.body.style.backgroundColor = "blue";
+        }
+    });
+</script></html>
