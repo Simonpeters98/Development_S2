@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        
+        /* De valid class maakt de regel text die de status aangeeft groen, valid:before
+        zorgt ervoor dat het checkmark logotje vóór de regel text komt. */
+        
+        .valid {
+            color: green;
+        }
+
+        .valid:before {
+            position: relative;
+            left: -2px;
+            content: "✔";
+        }
+        /* De invalid class maakt de regel text die de status aangeeft rood, invalid:before
+        zorgt ervoor dat het kruisje vóór de regel text komt. */
+        
+        .invalid {
+            color: red;
+        }
+
+        .invalid:before {
+            position: relative;
+            left: -2px;
+            content: "✖";
+        }
+        
+    </style>
+</head>
+
+<body>
+    
+    <!--Simpel html invoerveld -->
+    <form>
+        <fieldset>
+            <legend><b>Login:</b></legend>
+            E-mail:<br>
+            <input id="emailInput" type="text" name="email" value="yourmail@email.com">
+            <br>
+            Password:<br>
+            <input id="passwordInput" type="password" name="password" value="        ">
+            <br><br>
+            <input id="buttonPress" type="submit" value="Submit">
+        </fieldset>
+    </form>
+    
+    <p class="invalid" id="checkLowercase">status of lowercase use</p>
+    <p class="invalid" id="check">status of uppercase use</p>
+    
+</body>
+<script>
+    
+    var myInput = document.getElementById("passwordInput");
+    var lowerCase = document.getElementById("checkLowercase");
+
+    //methode om het gebruik van een kleine letter te verifieren.
+    myInput.onkeyup = function() {
+        var lowerCaseLetters = /[a-z];
+        if (myInput.value.match(lowerCaseLetters)) {
+            lowerCase.classList.remove("invalid");
+            lowerCase.classList.add("valid");
+        } else {
+            lowerCase.classList.remove("valid");
+            lowerCase.classList.add("invalid");
+        }
+    }
+</script></html>
