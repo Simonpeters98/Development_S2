@@ -60,9 +60,9 @@
     var myInput = document.getElementById("passwordInput");
     var lowerCase = document.getElementById("checkLowercase");
 
-    //methode om het gebruik van een kleine letter te verifieren.
+
     myInput.onkeyup = function() {
-        var lowerCaseLetters = /[a-z];
+        var lowerCaseLetters = /[a-z]/g;
         if (myInput.value.match(lowerCaseLetters)) {
             lowerCase.classList.remove("invalid");
             lowerCase.classList.add("valid");
