@@ -5,9 +5,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
+    <style>
+        /* De valid class maakt de regel text die de status aangeeft groen, valid:before
+        zorgt ervoor dat het checkmark logotje vóór de regel text komt. */
+
+        .valid {
+            color: green;
+        }
+
+        .valid:before {
+            position: relative;
+            left: -2px;
+            content: "✔";
+        }
+
+        /* De invalid class maakt de regel text die de status aangeeft rood, invalid:before
+        zorgt ervoor dat het kruisje vóór de regel text komt. */
+
+        .invalid {
+            color: red;
+        }
+
+        .invalid:before {
+            position: relative;
+            left: -2px;
+            content: "✖";
+        }
+    </style>
 </head>
 
 <body>
+
+    <!--Simpel html invoerveld -->
     <form>
         <fieldset>
             <legend><b>Login:</b></legend>
@@ -15,47 +44,67 @@
             <input id="emailInput" type="text" name="email" value="yourmail@email.com">
             <br>
             Password:<br>
-            <input id="passwordInput" type="password" name="password" value="password">
+            <input id="passwordInput" type="password" name="password" value="        ">
             <br><br>
-            <input id="buttonPress" onclick="variablesAlert();testCapital();pswLengthCheck();checkForNumber();" type="submit" value="Submit">
-
-            
+            <input id="buttonPress" type="submit" value="Submit">
         </fieldset>
     </form>
+
+    <p class="invalid" id="checkLowercase">status of lowercase use</p>
+    <p class="invalid" id="checkUpperCase">status of uppercase use</p>
+    <p class="invalid" id="checkPwsLength">status of 6 characters or more use</p>
+    <p class="invalid" id="checkForNr">status of number use</p>
+
+
 </body>
-
 <script>
-    //document.getElementById("buttonPress").onclick = variablesAlert;
-    //document.getElementById("buttonPress2").onclick = testCapital;
+    var myInput = document.getElementById("passwordInput");
+    var lowerCase = document.getElementById("checkLowercase");
+    var upperCase = document.getElementById("checkUpperCase");
+    var pwsLength = document.getElementById("checkPwsLength");
+    var nrUse = document.getElementById("checkForNr");
 
-    function variablesAlert() {
-        var inputEmail = document.getElementById("emailInput").value;
-        var inputPassword = document.getElementById("passwordInput").value;
-        alert(inputEmail + '\n' + inputPassword);
-    }
 
-    function testCapital() {
-        if (document.getElementById("passwordInput").value.search(/[A-Z]/) < 0) {
-            alert("Your password needs an upper case letter");
+    // methode om het gebruik van een kleine letter te verifieren.
+    myInput.onkeyup = function() {
+        var lowerCaseLetters = /[a-z]/g;
+        if (myInput.value.match(lowerCaseLetters)) {
+            lowerCase.classList.remove("invalid");
+            lowerCase.classList.add("valid");
         } else {
-            alert("You've succefully used an upper case letter for your password")
+            lowerCase.classList.remove("valid");
+            lowerCase.classList.add("invalid");
+        }
+
+        // methode om het gebruik van hoofdletters te verifieren.
+        var upperCaseLetters = /[A-Z]/g;
+        if (myInput.value.match(upperCaseLetters)) {
+            upperCase.classList.remove("invalid");
+            upperCase.classList.add("valid");
+        } else {
+            upperCase.classList.remove("valid");
+            upperCase.classList.add("invalid");
+        }
+
+        // methode om het gebruik van 6 tekens of meer te verifieren.
+        if (myInput.value.length >= 6) {
+            pwsLength.classList.remove("invalid");
+            pwsLength.classList.add("valid");
+        } else {
+            pwsLength.classList.remove("valid");
+            pwsLength.classList.add("invalid");
+        }
+
+        // methode om het gebruik van één of meerdere cijfer te verifieren.
+        var numbers = /[0-9]/g;
+        if (myInput.value.match(numbers)) {
+            nrUse.classList.remove("invalid");
+            nrUse.classList.add("valid");
+        } else {
+            nrUse.classList.remove("valid");
+            nrUse.classList.add("invalid");
         }
     }
 
-    function pswLengthCheck() {
-        var passwordLength = document.getElementById("passwordInput").value;
-        if (document.getElementById("passwordInput").value.length < 4) {
-            alert("Your password needs a minimum of four characters");
-        } else {
-            alert("your password contains 4 or more characters")
-        }
-    }
-
-    function checkForNumber() {
-        if (document.getElementById("passwordInput").value.search(/[0-9]/) < 0) {
-            alert("Your password needs a number")
-        } else {
-            alert("Your password contains a number")
-        }
-    }
+    
 </script></html>
