@@ -54,6 +54,7 @@
     <p class="invalid" id="checkUpperCase">status of uppercase use</p>
     <p class="invalid" id="checkPwsLength">status of 6 characters or more use</p>
     <p class="invalid" id="checkForNr">status of number use</p>
+    <p class="invalid" id="checkForSpecialChar">status of special character use</p>
 
 
 </body>
@@ -63,6 +64,7 @@
     var upperCase = document.getElementById("checkUpperCase");
     var pwsLength = document.getElementById("checkPwsLength");
     var nrUse = document.getElementById("checkForNr");
+    var spCharacter = document.getElementById("checkForSpecialChar");
 
 
     // methode om het gebruik van een kleine letter te verifieren.
@@ -104,7 +106,15 @@
             nrUse.classList.remove("valid");
             nrUse.classList.add("invalid");
         }
-    }
 
-    
+        // methode om het gebruik van speciale takens te verifieren.
+        var spCharacters = /[^a-zA-Z0-9]/g;
+        if (myInput.value.match(spCharacters)) {
+            spCharacter.classList.remove("invalid");
+            spCharacter.classList.add("valid");
+        } else {
+            spCharacter.classList.remove("valid");
+            spCharacter.classList.add("invalid");
+        }
+    }
 </script></html>
