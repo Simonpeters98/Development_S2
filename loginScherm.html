@@ -45,6 +45,7 @@
             <br>
             Password:<br>
             <input id="passwordInput" type="password" name="password" value="        ">
+            <input type="checkbox" onclick="passwordVisibilityToggle()">Show/Hide Password
             <br><br>
             <input id="buttonPress" type="submit" value="Submit">
         </fieldset>
@@ -115,6 +116,16 @@
         } else {
             spCharacter.classList.remove("valid");
             spCharacter.classList.add("invalid");
+        }
+
+    }
+
+    function passwordVisibilityToggle() {
+        var x = document.getElementById("passwordInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
         }
     }
 </script></html>
