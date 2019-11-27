@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+    .center {
+        text-align: center;
+    }
+    
+    .centerText{
+        text-align: center;
+    }
+</style>
+
+<body>
+    <P id="centerButton">Center Me</P>
+    <div class="center">
+        <button type="button" onclick="centerText()" >Click me!</button>
+    </div>
+
+</body>
+<script>
+    var centeredText = document.getElementById("centerButton");
+    function centerText() {
+        centeredText.classList.add("centerText");       
+    }
+</script></html>
