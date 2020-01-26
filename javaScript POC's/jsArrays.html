@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <button onclick="array()">show car array</button>
+
+    <p></p>
+
+    <p id="demo"></p>
+
+
+
+    <p id="demo3"></p>
+
+    <button onclick="myFunction()">loop through array with for loop</button>
+
+
+
+
+
+</body></html>
+<script>
+
+function array(){
+
+    var cars = ["toyota", "honda", "mitsubishi"];
+    var carsLength = cars.length;
+    document.getElementById("demo").innerHTML = cars;
+    document.getElementById("demo2").innerHTML = "second car of array: "+cars[1];
+    
+}
+    function myFunction(){
+    var cars, text, cLen, i;
+    cars = ["toyota", "mitsubishi", "honda", "nissan"];
+    cLen = cars.length;
+
+    text = "<ul>";
+    for (i = 0; i < cLen; i++) {
+      text += "<li>" + cars[i] + "</li>";
+    }
+    text += "</ul>";
+
+    document.getElementById("demo3").innerHTML = text;
+        
+    }
+    
+    
+    
+
+
+    
+    
+</script>

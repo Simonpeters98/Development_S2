@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <button onclick="txtLength()">click me</button>
+
+    <p>show string lentgh of: ABCDEFGHIJKLMNOPQRSTUVWXYZ </p>
+
+    <p id="demo"></p>
+
+    <p>index of letter "S"</p>
+
+    <p id="demo2"></p>
+
+    <p>slice from index 8 until index 16</p>
+
+    <p id="demo3"></p>
+
+
+
+    <p id="demo4">"replace this"</p>
+
+    <button onclick="myFunction()">click me to replace</button>
+
+    <p id="demo5">uppercase this.</p>
+
+    <button onclick="myFunction2()">click me to covert to uppercase</button>
+
+
+
+    <p id="demo6">concat </p>
+
+    <button onclick="myConcat()">click me to concat var text 1 and var text 2.</button>
+
+
+
+
+</body></html>
+<script>
+
+function txtLength(){
+var text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    
+    document.getElementById("demo").innerHTML = text.length;
+var pos = text.indexOf("S");
+    document.getElementById("demo2").innerHTML = pos;
+    var slice = text.slice(10,16);
+    document.getElementById("demo3").innerHTML = slice;
+    
+    
+    
+}
+    function myFunction(){
+    var altText = document.getElementById("demo4").innerHTML;
+    var replaceText = altText.replace("replace this", "I have been replaced");
+        document.getElementById("demo4").innerHTML = replaceText;
+    }
+    
+        function myFunction2(){
+            var txt = document.getElementById("demo5").innerHTML;
+            document.getElementById("demo5").innerHTML = txt.toUpperCase();
+    }
+    
+    function myConcat(){
+        var text1 = "hello"
+        var text2 = "world"
+        var text3 = text1.concat(" ", text2)
+        document.getElementById("demo6").innerHTML = text3;
+    }
+    
+    
+</script>

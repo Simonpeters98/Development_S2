@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<p>generate random nr between 0-9:</p>
+
+    <p id="demo"></p>
+
+
+<button onclick="document.getElementById('demo').innerHTML = getRndInteger(0,10)">Click Me</button>
+    
+</body></html>
+<script>
+    
+function getRndInteger(minNr, maxNr) {
+  return Math.floor(Math.random() * (maxNr - minNr)) + minNr;
+}
+</script>
+
+
+    
+    

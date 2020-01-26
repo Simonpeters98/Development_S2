@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+
+    <button onclick="showPerson()">click me</button>
+    <p></p>
+    <p id="demo"></p>
+
+</body></html>
+<script>
+
+function showPerson(){
+    var person={firstName: "Simon", lastName: "Peters", age: 21};
+    document.getElementById("demo").innerHTML =
+        person.firstName + " " + person.lastName + " " + "is" + " " + person.age + " " + "years old";
+}
+
+</script>
